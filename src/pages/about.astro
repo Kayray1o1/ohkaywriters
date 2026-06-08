@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
+
+const services = [
+  {
+    title: 'SEO content articles',
+    body: 'Researched, structured articles that read naturally and earn their spot in search.',
+  },
+  {
+    title: 'Blog posts',
+    body: 'Regular, on-brand posts that keep your audience reading and coming back.',
+  },
+  {
+    title: 'Non-fiction ghostwriting',
+    body: 'Your expertise, your name, my words. Books and long-form written in your voice.',
+  },
+  {
+    title: 'Fiction ghostwriting',
+    body: 'Novels and stories with characters who feel real and plots that pull readers through.',
+  },
+  {
+    title: 'Interviews into content',
+    body: 'Turn a recorded conversation into a polished article, story, or book.',
+  },
+  {
+    title: 'Copywriting',
+    body: 'Words that sell — landing pages, product copy, and brand voice that converts.',
+  },
+];
+---
+
+<BaseLayout
+  title="About — Kay Smith"
+  description="Kay Smith is a writer and copywriter covering SEO content, commercial copy, essays, and fiction."
+>
+  <section class="about">
+    <div class="container measure">
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Kay.</h1>
+      <p class="lede">
+        I'm a coffee-addicted writer who spends afternoons — and most nights — at the
+        keyboard, a strong cup never far away. One day I'll deal with the caffeine habit.
+        Today, I'm just excited for whatever challenge you bring me.
+      </p>
+      <p>
+        I'm a professional ghostwriter, content writer, and now copywriter with over five
+        years of experience. I craft quality content, map out clear outlines, and produce
+        work built around <em>your</em> goals.
+      </p>
+      <p>
+        I've landed contracts with Urban Writers and Anystories, the fiction story app, and
+        I write on a wide range of topics for clients around the world.
+      </p>
+      <p>
+        Need a steady hand to follow your brief step by step? I've got you. Want someone to
+        take the lead and guide the project where it needs to go? I do that too.
+      </p>
+      <!-- KAY — tweak this bio anytime. Add your location or niche focus if you want. -->
+    </div>
+  </section>
+
+  <section class="section services-wrap">
+    <div class="container">
+      <h2>What I write</h2>
+      <div class="services">
+        {services.map((s) => (
+          <div class="service">
+            <h3>{s.title}</h3>
+            <p class="muted">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Let's work together</h2>
+      <p class="measure muted">
+        Send me your brief on Upwork and tell me what you need written. I'll tell you
+        how I'd approach it.
+      </p>
+      <a href={UPWORK} class="btn" target="_blank" rel="noopener">Hire me on Upwork</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+  .lede { font-size: 1.25rem; color: var(--ink-soft); }
+
+  .services-wrap { background: var(--paper-2); border-block: 1px solid var(--line); }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .service { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; }
+  .service h3 { margin: 0 0 0.5rem; }
+  .service p { margin: 0; font-size: 0.95rem; }
+
+  .cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding-block: clamp(3rem, 7vw, 5rem);
+  }
+  .cta-band h2 { color: var(--paper); }
+  .cta-band .muted { color: #c9c4bb; margin-inline: auto; margin-bottom: 1.75rem; }
+  .cta-band .btn { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .cta-band .btn:hover { background: transparent; color: var(--paper); border-color: var(--paper); }
+</style>

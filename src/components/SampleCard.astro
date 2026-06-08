@@ -1,0 +1,42 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  category: string;
+  excerpt: string;
+}
+const { href, title, category, excerpt } = Astro.props;
+---
+
+<a class="card" href={href}>
+  <span class="eyebrow">{category}</span>
+  <h3>{title}</h3>
+  <p class="muted">{excerpt}</p>
+  <span class="read">Read piece →</span>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.6rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    color: var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px -18px rgba(28, 27, 26, 0.4);
+    border-color: var(--accent);
+  }
+  .card h3 { margin: 0 0 0.5rem; }
+  .card p { font-size: 0.95rem; margin: 0 0 1.2rem; flex: 1; }
+  .read {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+</style>

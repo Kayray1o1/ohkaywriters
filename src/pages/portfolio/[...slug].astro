@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const all = await getCollection('writing');
+  return all.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
+---
+
+<BaseLayout title={`${entry.data.title} — Kay Smith`} description={entry.data.description}>
+  <article class="piece">
+    <div class="container measure">
+      <a href="/portfolio" class="back">← Back to portfolio</a>
+      <p class="eyebrow">{entry.data.category}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="byline muted">
+        {entry.data.section === 'creative' ? 'Fiction sample' : 'Writing sample'} · by {entry.data.byline}
+      </p>
+      <hr class="divider" />
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <section class="piece-cta">
+    <div class="container measure">
+      <h2>Like how this reads?</h2>
+      <p class="muted">I'd love to write something like it for you.</p>
+      <a href={UPWORK} class="btn" target="_blank" rel="noopener">Hire me on Upwork</a>
+      <p class="more"><a href="/portfolio">Or browse more samples →</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .piece { padding-block: clamp(2rem, 5vw, 3.5rem) 1rem; }
+  .back { font-size: 0.9rem; font-weight: 500; display: inline-block; margin-bottom: 1.5rem; }
+  .byline { font-size: 0.9rem; margin-top: -0.25rem; }
+
+  .prose { font-size: 1.12rem; line-height: 1.8; color: var(--ink-soft); }
+  .prose :global(h2) { margin-top: 2.2rem; color: var(--ink); }
+  .prose :global(h3) { margin-top: 1.8rem; color: var(--ink); }
+  .prose :global(blockquote) {
+    margin: 1.8rem 0;
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    border-left: 3px solid var(--accent);
+    font-style: italic;
+    color: var(--muted);
+  }
+  .prose :global(ul), .prose :global(ol) { padding-left: 1.3rem; margin-bottom: 1.3rem; }
+  .prose :global(li) { margin-bottom: 0.4rem; }
+  .prose :global(img) { border-radius: 12px; margin: 2rem 0; }
+  .prose :global(em) { font-style: italic; }
+  .prose :global(hr) { margin: 2.5rem 0; }
+
+  .piece-cta {
+    margin-top: 3rem;
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+    text-align: center;
+  }
+  .piece-cta .btn { margin-top: 0.5rem; }
+  .more { margin-top: 1.25rem; font-size: 0.95rem; }
+</style>

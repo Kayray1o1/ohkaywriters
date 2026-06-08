@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SampleCard from '../../components/SampleCard.astro';
+
+const all = await getCollection('writing');
+const sorted = all.sort((a, b) => a.data.order - b.data.order);
+const professional = sorted.filter((p) => p.data.section === 'professional');
+const creative = sorted.filter((p) => p.data.section === 'creative');
+---
+
+<BaseLayout
+  title="Portfolio — Kay Smith"
+  description="Writing samples by Kay Smith: SEO and commercial copy, thought-leadership essays, personal narrative, and creative fiction."
+>
+  <section class="intro">
+    <div class="container measure">
+      <p class="eyebrow">Portfolio</p>
+      <h1>The work</h1>
+      <p class="muted">
+        A spread of what I do — commercial and SEO copy, essays with an argument, and
+        fiction with a heartbeat. Read whatever catches your eye.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="professional">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Professional</span>
+        <h2>Copywriting, essays &amp; content</h2>
+      </div>
+      <div class="grid">
+        {professional.map((p) => (
+          <SampleCard
+            href={`/portfolio/${p.id}`}
+            title={p.data.title}
+            category={p.data.category}
+            excerpt={p.data.excerpt}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section" id="creative">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Creative</span>
+        <h2>Fiction</h2>
+      </div>
+      <div class="grid">
+        {creative.map((p) => (
+          <SampleCard
+            href={`/portfolio/${p.id}`}
+            title={p.data.title}
+            category={p.data.category}
+            excerpt={p.data.excerpt}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro { padding-block: clamp(2.5rem, 6vw, 4.5rem) 1rem; }
+  .section-head { margin-bottom: 2rem; }
+  .section-head h2 { margin-top: 0.25rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+</style>

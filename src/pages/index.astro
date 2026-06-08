@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SampleCard from '../components/SampleCard.astro';
+
+const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
+
+const all = await getCollection('writing');
+const sorted = all.sort((a, b) => a.data.order - b.data.order);
+const featured = sorted.filter((p) => p.data.featured).slice(0, 4);
+const fallback = featured.length ? featured : sorted.slice(0, 4);
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow fade-up">Writer &amp; Copywriter</p>
+      <h1 class="fade-up">
+        Words that carry a story — <em>and</em> close a sale.
+      </h1>
+      <p class="lede measure fade-up">
+        I'm Kay Smith. I write SEO and commercial copy that earns its keep,
+        thought-leadership essays with a point of view, and fiction people actually
+        finish. Two sides of one craft: clear, human, and worth reading.
+      </p>
+      <div class="cta-row fade-up">
+        <a href="/portfolio" class="btn">Read my work</a>
+        <a href={UPWORK} class="btn btn-ghost" target="_blank" rel="noopener">Hire me on Upwork</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Two halves -->
+  <section class="section">
+    <div class="container halves">
+      <div class="half">
+        <span class="eyebrow">Professional</span>
+        <h2>Copy &amp; content that works</h2>
+        <p class="muted">
+          SEO blog posts, product and commercial writing, and thought-leadership
+          essays — researched, structured, and written to be read by humans and
+          ranked by search engines.
+        </p>
+        <a href="/portfolio#professional" class="link-arrow">See professional work →</a>
+      </div>
+      <div class="half">
+        <span class="eyebrow">Creative</span>
+        <h2>Fiction with a pulse</h2>
+        <p class="muted">
+          Fantasy and contemporary romance with characters who feel real and dialogue
+          that moves. Voice-driven storytelling that keeps readers turning the page.
+        </p>
+        <a href="/portfolio#creative" class="link-arrow">See creative work →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Featured -->
+  <section class="section">
+    <div class="container">
+      <div class="head-row">
+        <h2>Selected work</h2>
+        <a href="/portfolio" class="link-arrow">View all →</a>
+      </div>
+      <div class="grid">
+        {fallback.map((p) => (
+          <SampleCard
+            href={`/portfolio/${p.id}`}
+            title={p.data.title}
+            category={p.data.category}
+            excerpt={p.data.excerpt}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Have something that needs writing?</h2>
+      <p class="measure muted">
+        Whether it's a blog that needs to rank, a brand that needs a voice, or a story
+        that needs telling — let's talk.
+      </p>
+      <a href={UPWORK} class="btn" target="_blank" rel="noopener">Start a project on Upwork</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-block: clamp(3.5rem, 9vw, 7rem); }
+  .hero h1 { max-width: 18ch; }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); margin-top: 1rem; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
+
+  .halves { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+  .half h2 { margin-top: 0.25rem; }
+  .link-arrow { font-weight: 600; font-size: 0.95rem; }
+
+  .head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding-block: clamp(3rem, 7vw, 5rem);
+  }
+  .cta-band h2 { color: var(--paper); }
+  .cta-band .muted { color: #c9c4bb; margin-inline: auto; margin-bottom: 1.75rem; }
+  .cta-band .btn { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .cta-band .btn:hover { background: transparent; color: var(--paper); border-color: var(--paper); }
+
+  @media (max-width: 700px) {
+    .halves { grid-template-columns: 1fr; }
+  }
+</style>

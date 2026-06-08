@@ -1,0 +1,45 @@
+---
+const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <div>
+      <p class="name">Kay Smith</p>
+      <p class="muted tag">Writer &amp; copywriter — fiction, essays &amp; commercial content.</p>
+    </div>
+    <div class="links">
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href={UPWORK} target="_blank" rel="noopener">Upwork</a>
+    </div>
+  </div>
+  <div class="container copyright">
+    <p class="muted">© {year} Kay Smith. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+  }
+  .name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin: 0 0 0.25rem; }
+  .tag { margin: 0; font-size: 0.9rem; }
+  .links { display: flex; gap: 1.25rem; font-weight: 500; }
+  .links a { color: var(--ink-soft); }
+  .links a:hover { color: var(--accent); }
+  .copyright { border-top: 1px solid var(--line); padding-block: 1.25rem; }
+  .copyright p { margin: 0; font-size: 0.85rem; }
+</style>
