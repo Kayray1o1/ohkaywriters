@@ -40,6 +40,16 @@ Featured on home (featured: true): leather bags, the-need-to-be-right, coffee, w
 - Bio now uses Kay's real Upwork bio (coffee hook, 5 yrs exp, Urban Writers + Anystories, lead-or-follow), edited per her copywriting rules.
 - Services grid = her 6 real services (SEO articles, blog posts, non-fiction ghostwriting, fiction ghostwriting, interviews-into-content, copywriting).
 
+## DEPLOY STATUS (2026-06-08)
+- ✅ Pushed to GitHub (Kayray1o1/ohkaywriters, main).
+- ✅ Imported & deployed on Netlify (kayraysmith account) → live at **https://ohkaywriters.netlify.app**
+- ✅ Custom domain ohkaywriting.co.za added in Netlify (apex primary, www redirects) — shows "Pending DNS verification".
+- ⏳ BLOCKED: ohkaywriting.co.za is **still pending registration** at GoDaddy. Can't add DNS / won't resolve until registration finalizes.
+- **When registration completes**: in GoDaddy DNS for ohkaywriting.co.za add → A `@` = 75.2.60.5, CNAME `www` = ohkaywriters.netlify.app → then Netlify "Verify DNS configuration" + provision HTTPS.
+
+## SIDE NOTE — gaming domain (Kay's separate project)
+- ohkaygamers.co.za apex has NO A record (only www CNAME → ohkaygamers.netlify.app works). Site is fine on www + netlify.app. To make bare domain work, add A `@` = 75.2.60.5 on the GAMING domain. Kay's "open & save" did NOT break it.
+
 ## Next Steps
 1. Kay to review the site in browser (localhost:4322 if gaming site is running, else 4321)
 2. Custom domain = **ohkaywriting.co.za** (already in astro.config.mjs `site` + robots.txt). co.za = likely registered via a SA registrar (e.g. domains.co.za / Afrihost) — point DNS to Netlify at deploy.
