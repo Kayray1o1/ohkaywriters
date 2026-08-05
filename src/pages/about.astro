@@ -1,7 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SampleCard from '../components/SampleCard.astro';
 
 const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
+
+const all = await getCollection('writing');
+const bySlug = new Map(all.map((p) => [p.id, p]));
+
+// KAY — these four lead your About page. Swap or reorder a slug and the cards
+// update themselves. Chosen for range: memoir, fiction, business essay, researched content.
+const bestPicks = [
+  'how-coffee-changed-my-life',
+  'before-you-die',
+  'the-need-to-be-right',
+  'dead-by-daylight-addiction',
+];
+const best = bestPicks.map((slug) => bySlug.get(slug)).filter(Boolean);
 
 const services = [
   {
@@ -61,6 +76,32 @@ const services = [
     </div>
   </section>
 
+  <section class="section best">
+    <div class="container">
+      <div class="head-row">
+        <div>
+          <span class="eyebrow">Best work</span>
+          <h2>If you only read four</h2>
+        </div>
+        <a href="/portfolio" class="link-arrow">See everything →</a>
+      </div>
+      <p class="measure muted intro-line">
+        Four pieces that cover the range — a personal essay, an opening chapter,
+        a business essay, and a researched content piece.
+      </p>
+      <div class="grid">
+        {best.map((p) => (
+          <SampleCard
+            href={`/portfolio/${p.id}`}
+            title={p.data.title}
+            category={p.data.category}
+            excerpt={p.data.excerpt}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section services-wrap">
     <div class="container">
       <h2>What I write</h2>
@@ -90,6 +131,22 @@ const services = [
 <style>
   .about { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
   .lede { font-size: 1.25rem; color: var(--ink-soft); }
+
+  .best { padding-top: 0; }
+  .head-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .head-row h2 { margin: 0.25rem 0 0; }
+  .link-arrow { font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+  .intro-line { margin: 0.75rem 0 2rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
 
   .services-wrap { background: var(--paper-2); border-block: 1px solid var(--line); }
   .services {
