@@ -29,6 +29,12 @@ const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
             : 'Writing sample'} · by {entry.data.byline}
       </p>
       <hr class="divider" />
+      {entry.data.setup && (
+        <aside class="setup">
+          <p class="setup-label">The setup</p>
+          <p set:html={entry.data.setup} />
+        </aside>
+      )}
       <div class="prose">
         <Content />
       </div>
@@ -49,6 +55,24 @@ const UPWORK = 'https://www.upwork.com/freelancers/~01416937ace65f7989';
   .piece { padding-block: clamp(2rem, 5vw, 3.5rem) 1rem; }
   .back { font-size: 0.9rem; font-weight: 500; display: inline-block; margin-bottom: 1.5rem; }
   .byline { font-size: 0.9rem; margin-top: -0.25rem; }
+
+  .setup {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 2.5rem;
+  }
+  .setup p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); line-height: 1.65; }
+  .setup-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent) !important;
+    margin-bottom: 0.4rem !important;
+  }
 
   .prose { font-size: 1.12rem; line-height: 1.8; color: var(--ink-soft); }
   .prose :global(h2) { margin-top: 2.2rem; color: var(--ink); }

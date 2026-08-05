@@ -4,10 +4,11 @@ description: "A short-form comedy sketch script — a confident new player meets
 section: professional
 category: "YouTube Shorts Script"
 excerpt: "A sketch that builds its joke purely on rising complexity — each answer makes it worse, until the punchline is simply walking away."
+setup: "<em>Dead by Daylight</em> is a horror game where four survivors try to repair generators and escape while one player hunts them as the killer. It has a reputation for being punishingly complicated to learn. Here a veteran welcomes a brand-new player who has just finished the tutorial and is feeling confident. Every question she asks makes the answer worse. <em>Stardew Valley</em> is a gentle farming game, which is the point of the last line."
 order: 10
 ---
 
-*[Pop.]*
+*[Pop — the sound of a player joining the lobby.]*
 
 **Kay 1:** Right, just another day in DBD...
 

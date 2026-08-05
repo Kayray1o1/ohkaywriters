@@ -12,6 +12,9 @@ const writing = defineCollection({
     category: z.string(),
     byline: z.string().default('Kay Smith'),
     excerpt: z.string(),
+    // Optional editorial setup shown in a box above the piece. Used on script
+    // samples so a reader with no context understands the format and the joke.
+    setup: z.string().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(99),
   }),

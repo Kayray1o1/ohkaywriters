@@ -4,6 +4,7 @@ description: "A short-form comedy sketch script — two survivors, one bowl of s
 section: professional
 category: "YouTube Shorts Script"
 excerpt: "A two-hander sketch built on escalation: an absurd inventory, a slow-dawning realisation, and a punchline that lands on a sound cue."
+setup: "<em>Green Hell</em> is a jungle survival game where you have to check what you're eating &mdash; the game lists what's in every meal, and eating the wrong thing poisons you. Two friends are playing together. One of them has been reading the labels. The other has not. The joke turns on the moment she realises which one she is, and the church bells at the end are the game's own death cue."
 order: 9
 ---
 

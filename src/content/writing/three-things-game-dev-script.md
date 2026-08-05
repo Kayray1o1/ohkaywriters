@@ -4,6 +4,7 @@ description: "A short-form talking-head script with shot directions — hook, th
 section: professional
 category: "YouTube Shorts Script"
 excerpt: "A straight-to-camera short with the shot list written into the copy: self-deprecating hook, three clean beats, and a CTA that earns itself."
+setup: "A talking-head short for a game-development audience, written the way it gets filmed. The spoken line comes first and the bracketed <em>SHOT</em> note beside it tells the editor what is on screen while that line is said, so the script doubles as the shot list. <em>Paranoia</em> is the horror game being built. The structure is the standard short-form spine: hook, a promise of three things, three beats, call to action."
 order: 13
 ---
 
