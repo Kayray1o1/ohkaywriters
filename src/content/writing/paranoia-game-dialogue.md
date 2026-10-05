@@ -15,31 +15,31 @@ order: 0
 
 **CLARK TURNER:** "Hello? How do I use this thing..."
 
-**BRANDON B. WILLIAMS:** "Hello? Can you hear me?"
+**STRANGER:** "Hello? Can you hear me?"
 
 **CLARK TURNER:** "There we go." *[Beep]* "Yes, loud and clear."
 
-**BRANDON B. WILLIAMS:** "Now don't freak out."
+**STRANGER:** "Now don't freak out."
 
 **CLARK TURNER:** "Where the hell am I? Who are you, and why is my head pounding?"
 
-**BRANDON B. WILLIAMS:** "Okay, this is strange, I know. But you have to listen to me..."
+**STRANGER:** "Okay, this is strange, I know. But you have to listen to me..."
 
 **CLARK TURNER:** "How about you tell me something that's ACTUALLY useful?"
 
-**BRANDON B. WILLIAMS:** "Dude, this is NOT the time to be an ass..."
+**STRANGER:** "Dude, this is NOT the time to be an ass..."
 
 **CLARK TURNER:** "Well, that was rude."
 
-**BRANDON B. WILLIAMS:** "It's hard to explain everything. But I've been through all this before, and I can get you out of here alive."
+**STRANGER:** "It's hard to explain everything. But I've been through all this before, and I can get you out of here alive."
 
 **CLARK TURNER:** "Uh-huh. Sure."
 
-**BRANDON B. WILLIAMS:** "You're welcome to carry on by yourself. It's not as if this place is a death trap, my friend."
+**STRANGER:** "You're welcome to carry on by yourself. It's not as if this place is a death trap, my friend."
 
 **CLARK TURNER:** "I'm not your friend... but I'm listening."
 
-**BRANDON B. WILLIAMS:** "Finally. Gosh. Let's just start by getting you through those doors, okay? The code is..."
+**STRANGER:** "Finally. Gosh. Let's just start by getting you through those doors, okay? The code is..."
 
 *[Code redacted. Play the demo.]*
 
